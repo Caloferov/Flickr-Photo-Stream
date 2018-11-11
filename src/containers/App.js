@@ -35,12 +35,10 @@ class App extends Component {
       <h1>Loading</h1> :
       (
         <div className='tc'>
-          <div className="flex-wrap">
+          <div className="flex-row">
             <h1 className=''>Flick Photo Stream</h1>
             <SearchBox searchChange={this.onSearchChange} />
           </div>
-
-
           <CardList pics={filteredpics} />
         </div>
       );

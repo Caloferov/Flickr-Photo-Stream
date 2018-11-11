@@ -4,8 +4,17 @@
   justify-content: center;
 }
 
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; 
+
+}
+
 body {
   font-size: 14px;
+  display: flex;
+  justify-content: center;
 }
 
 .card {
@@ -13,6 +22,7 @@ body {
   height: 360px;
   padding: 15px;
   margin: 15px;
+  background: white;
 }
 
 .pic-container {
@@ -20,7 +30,6 @@ body {
   margin-bottom: 1rem;
   width: 100%;
   height: 60%;
-  background-color: black;
 }
 
 .pic {
@@ -38,8 +47,6 @@ body {
 .title {
   font-size: 16px;
 }
-
-
 
 .title-overflow {
   white-space: nowrap;
