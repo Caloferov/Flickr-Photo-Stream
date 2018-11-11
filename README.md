@@ -1,5 +1,4 @@
-# robofriends
-Tutorial for udemy course - React
+# Flickr Photo Stream
 To run the project:
 
 1. Clone this repo
