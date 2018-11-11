@@ -3,23 +3,30 @@ import LazyLoad from 'react-lazyload';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import '../containers/App.css';
 
-const Card = ({ key, title, author, description, tags, media, link }) => {
+const Card = ({ key, title, author, description, tags, media, link, authorID }) => {
   var descr = description;
+
   var tagsSplitted = tags.split(' ');
   var tagsJoinedByComma = tagsSplitted.join(', ');
+
+  var authorSplitted = author.split('\"');
+
+
+  var authorPage = "https://www.flickr.com/people/" + authorID;
   return (
     <LazyLoad height={360} offset={100} once >
-      <div className='bw2 shadow-5 card'>
+      <div className='bw2 card'>
 
         <div className="pic-container">
           <img className="pic" alt='Flickr pic' src={media} />
         </div>
 
-        <p className="title-and-author">
-          <a href={link}><span className="title">{title}</span></a>
-          &nbsp;by&nbsp;
-        <a href={author}><span className="">{author}</span></a>
-        </p>
+        <div className="title-and-author">
+          <a href={link} className="title ">{title}</a>
+         <p className="">&nbsp;by&nbsp;</p> 
+        <a href={authorPage} className="author">{authorSplitted[1]}</a>
+        </div>
+
         {/* <div className="description-overflow">
         {ReactHtmlParser(descr)}
              </div> */}

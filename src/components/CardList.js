@@ -16,6 +16,7 @@ const CardList = ({ pics }) => {
                 tags={pics[i].tags}
                 media={pics[i].media.m}
                 link={pics[i].link}
+                authorID = {pics[i].author_id}
               />
           );
         })

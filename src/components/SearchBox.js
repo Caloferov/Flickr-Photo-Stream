@@ -2,9 +2,9 @@ import React from 'react';
 
 const SearchBox = ({ searchfield, searchChange }) => {
   return (
-    <div className='pa2'>
+    <div className='searchbox'>
       <input
-        className='pa3'
+        className='searchbox-input'
         type='search'
         placeholder='Search photos'
         onChange={searchChange}
