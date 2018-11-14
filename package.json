@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "install": "^0.12.2",
+    "npm": "^6.4.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-html-parser": "^2.0.2",
     "react-lazyload": "^2.3.0",
     "react-scripts": "1.0.17",
-    "tachyons": "^4.9.0"
+    "tachyons": "^4.11.1"
   },
   "scripts": {
     "start": "react-scripts start",

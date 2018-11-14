@@ -4,3 +4,7 @@ body {
   font-family: sans-serif;
   background: linear-gradient(to left, rgb(8, 133, 122) 0%, rgba(0,128,128,1) 100%); /* w3c */
 }
+
+#root {
+  width: 100%; /*IE FIX */
+}

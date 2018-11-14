@@ -1,21 +1,31 @@
 import React from 'react';
 import LazyLoad from 'react-lazyload';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import '../containers/App.css';
+import Ellipsis from 'ftellipsis';
 
 const Card = ({ key, title, author, description, tags, media, link, authorID }) => {
-  var descr = description;
+  var element = document.getElementById('my-element');
+  var ellipsis = new Ellipsis(element);
+  
+  ellipsis.calc();
+  ellipsis.set();
+
 
   var tagsSplitted = tags.split(' ');
-  var tagsJoinedByComma = tagsSplitted.join(', ');
+  var tagsJoinedByComma;
+  if (tags.length < 1) {
+    tagsJoinedByComma = "There are no tags."
+  }
+  else {
+    tagsJoinedByComma = "Tags: " + tagsSplitted.join(', ');
+  }
 
   var authorSplitted = author.split('\"');
-
-
   var authorPage = "https://www.flickr.com/people/" + authorID;
+
   return (
-    <LazyLoad height={360} offset={100} once >
-      <div className='bw2 card'>
+    <LazyLoad height={360} >
+      <div className='card'>
 
         <div className="pic-container">
           <img className="pic" alt='Flickr pic' src={media} />
@@ -23,21 +33,25 @@ const Card = ({ key, title, author, description, tags, media, link, authorID }) 
 
         <div className="title-and-author">
           <a href={link} className="title ">{title}</a>
-         <p className="">&nbsp;by&nbsp;</p> 
-        <a href={authorPage} className="author">{authorSplitted[1]}</a>
+          <p className="">&nbsp;by&nbsp;</p>
+          <a href={authorPage} className="author">{authorSplitted[1]}</a>
         </div>
 
-        {/* <div className="description-overflow">
-        {ReactHtmlParser(descr)}
-             </div> */}
-        <div className="description-overflow">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis cumque similique illo esse aspernatur consequatur. Commodi a veritatis quidem asperiores expedita exercitationem non maxime quam. Officia vero eligendi iure illum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates sed est facere fugiat nobis? Delectus voluptatum nam aliquam itaque fugiat omnis optio labore, maxime cum illum saepe. Voluptates, atque accusamus!
+        <div className="description-overflow">      
+          {stripHtml(description)} 
         </div>
-        <p className="description-overflow zero-bottom-margin">Tags: {tagsJoinedByComma}</p>
+
+        <p className="tags zero-bottom-margin">{tagsJoinedByComma}</p>
+
       </div>
     </LazyLoad>
-
   );
+}
+
+function stripHtml(html) {
+  var temporalDivElement = document.createElement("div");
+  temporalDivElement.innerHTML = html;
+  return temporalDivElement.children.length > 2 ? temporalDivElement.children[2].innerText : "There is no description.";
 }
 
 export default Card;
