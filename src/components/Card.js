@@ -1,16 +1,8 @@
 import React from 'react';
 import LazyLoad from 'react-lazyload';
 import '../containers/App.css';
-import Ellipsis from 'ftellipsis';
 
 const Card = ({ key, title, author, description, tags, media, link, authorID }) => {
-  var element = document.getElementById('my-element');
-  var ellipsis = new Ellipsis(element);
-  
-  ellipsis.calc();
-  ellipsis.set();
-
-
   var tagsSplitted = tags.split(' ');
   var tagsJoinedByComma;
   if (tags.length < 1) {
@@ -37,8 +29,8 @@ const Card = ({ key, title, author, description, tags, media, link, authorID }) 
           <a href={authorPage} className="author">{authorSplitted[1]}</a>
         </div>
 
-        <div className="description-overflow">      
-          {stripHtml(description)} 
+        <div className="">
+          <p className="description-overflow">{stripNSlice(description)}</p>
         </div>
 
         <p className="tags zero-bottom-margin">{tagsJoinedByComma}</p>
@@ -48,10 +40,15 @@ const Card = ({ key, title, author, description, tags, media, link, authorID }) 
   );
 }
 
-function stripHtml(html) {
+function stripNSlice(html) {
   var temporalDivElement = document.createElement("div");
   temporalDivElement.innerHTML = html;
-  return temporalDivElement.children.length > 2 ? temporalDivElement.children[2].innerText : "There is no description.";
+  var descr = temporalDivElement.children.length > 2 ? temporalDivElement.children[2].innerText : "There is no description.";
+
+  if  (descr.length > 123) {
+   descr = descr.substring(0,120) + "...";
+  }
+  return descr;
 }
 
 export default Card;

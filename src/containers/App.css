@@ -17,6 +17,15 @@ body {
   justify-content: center;
 }
 
+.infinite-scroll-component {
+  height: auto;
+  overflow: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .logo-title {
   margin: 0 25px 0 25px;
   color: white;
@@ -84,9 +93,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: left;
-  position: relative;
   margin-bottom: auto;
-  max-width: 38ch;
 }
 
 .author {
@@ -98,16 +105,14 @@ body {
 
 .description-overflow {
   text-align: left;
-  height: 50px;
-  overflow: hidden;
-
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+   overflow: hidden;
+    
+   word-break: break-all;
 }
 
 .zero-bottom-margin {
   margin-bottom: 0;
+  margin-top: 0px;
 }
 
 @media only screen and (max-width: 692px) {
