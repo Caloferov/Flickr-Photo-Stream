@@ -8,10 +8,14 @@ class CardList extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      pics: [],
       items: Array.from({ length: 20 }),
       hasMore: true
     }
   }
+
+  
+
 
   fetchMoreData = () => {
     if (this.state.items.length >= 500) {
@@ -28,23 +32,17 @@ class CardList extends Component {
   };
 
 
+ 
   render() {
-    return (
+
+   
+
+    return !filteredpics.length ?
+    <h1>Loading</h1> :
+     (
       <div className='flex-wrap'>
-       <InfiniteScroll
-          dataLength={this.state.items.length}
-          next={this.fetchMoreData}
-          hasMore={this.state.hasMore}
-          loader={<h4>Loading...</h4>}
-          endMessage={
-            <p style={{ textAlign: "center" }}>
-              <b>Yay! You have seen it all</b>
-            </p>
-          }
-        
-          >
           {
-            this.props.pics.map((pic, i) => {
+            this.props.filteredpics.map((pic, i) => {
 
               return (
                 <Card
@@ -61,8 +59,6 @@ class CardList extends Component {
             })
 
           }
-
-        </InfiniteScroll>
       </div>
     );
   }
