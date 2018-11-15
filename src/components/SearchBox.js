@@ -6,7 +6,7 @@ const SearchBox = ({ searchfield, searchChange }) => {
       <input
         className='searchbox-input'
         type='search'
-        placeholder='Search photos'
+        placeholder='Search by tags'
         onChange={searchChange}
       />
     </div>
