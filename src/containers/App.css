@@ -46,12 +46,15 @@ body {
 .searchbox {
   margin-left: auto;
   margin-right: 25px;
-  box-shadow: 4px 4px 8px 0 rgba( 0, 0, 0, .2);
+ 
 }
 
 .searchbox-input {
   padding: 9px;
   width: 345px;
+  border-radius: 30px;
+    border: none;
+    box-shadow: 4px 4px 8px 0 rgba( 0, 0, 0, .2);
 }
 
 .card {
@@ -86,7 +89,7 @@ body {
   height: 100%;
   max-width: 100%;
   object-fit: contain;
-  -o-object-fit: contain;
+  
 }
 
 .title-and-author {
@@ -127,6 +130,10 @@ body {
 .zero-bottom-margin {
   margin-bottom: 0;
   margin-top: 0px;
+}
+
+::placeholder {
+  color: rgba(39, 39, 39, 0.322);
 }
 
 @media only screen and (max-width: 692px) {

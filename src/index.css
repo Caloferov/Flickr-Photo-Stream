@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: linear-gradient(to left, rgb(8, 133, 122) 0%, rgba(0,128,128,1) 100%); /* w3c */
+  background: linear-gradient(to left, rgb(2, 131, 45) 0%, rgb(0, 150, 150) 100%); /* w3c */
 }
 
 #root {

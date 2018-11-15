@@ -46,7 +46,7 @@ class App extends Component {
     return (
       <div className='tc'>
         <div className="flex-row tc">
-          <h1 className='logo-title'>Flick Photo Stream</h1>
+          <h1 className='logo-title'>Flickr Photo Stream</h1>
           <SearchBox searchChange={this.onSearchChange} />
         </div>
         <div className='flex-wrap'>
