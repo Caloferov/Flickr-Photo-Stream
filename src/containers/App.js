@@ -89,7 +89,7 @@ function parseJsonp(data, current) {
   var jsonp = data.body;
   var extractedJson = [];
 
-  // parse/filter `jsonp`'s value here if necessary 
+  // parse/filter the 'jsonp' here if necessary 
   var f = new Function("jsonFlickrFeed", jsonp);
   f(
     function (json) {
